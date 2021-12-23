@@ -125,8 +125,8 @@ hi link scalaCaseFollowing Special
 
 syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed null super given extension using open transparent export inline opaque enum
 syn keyword scalaSpecialFunction implicitly require summon
-hi link scalaKeywordModifier Function
-hi link scalaSpecialFunction Function
+hi link scalaKeywordModifier Keyword
+hi link scalaSpecialFunction Keyword
 
 syn keyword scalaSpecial this true false ne eq
 syn keyword scalaSpecial new nextgroup=scalaInstanceDeclaration skipwhite
