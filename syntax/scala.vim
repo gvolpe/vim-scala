@@ -123,7 +123,7 @@ syn match scalaCaseFollowing /\<[_\.A-Za-z0-9$]\+\>/ contained contains=scalaCap
 syn match scalaCaseFollowing /`[^`]\+`/ contained contains=scalaCapitalWord
 hi link scalaCaseFollowing Special
 
-syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed null super given extension using open transparent export inline opaque enum
+syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed null super given extension using open inline opaque enum
 syn keyword scalaSpecialFunction implicitly require summon
 hi link scalaKeywordModifier Keyword
 hi link scalaSpecialFunction Keyword
@@ -134,7 +134,7 @@ syn match scalaSpecial "\%(=>\|⇒\|<-\|←\|->\|→\)"
 syn match scalaSpecial /`[^`]\+`/  " Backtick literals
 hi link scalaSpecial PreProc
 
-syn keyword scalaExternal package import
+syn keyword scalaExternal package import export
 hi link scalaExternal Include
 
 syn match scalaStringEmbeddedQuote /\\"/ contained
