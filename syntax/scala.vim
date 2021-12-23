@@ -1,7 +1,7 @@
 " Vim syntax file
-" Language:             Scala
-" Maintainer:           Derek Wyatt
-" URL:                  https://github.com/derekwyatt/vim-scala
+" Language:             Scala 2 (and some Scala 3)
+" Maintainer:           Gabriel Volpe (adapted from Derek Wyatt's work)
+" URL:                  https://github.com/gvolpe/vim-scala
 " License:              Apache 2
 " ----------------------------------------------------------------------------
 
@@ -46,9 +46,6 @@ syn keyword scalaKeyword def var nextgroup=scalaNameDefinition skipwhite
 hi link scalaKeyword Keyword
 
 exe 'syn region scalaBlock start=/{/ end=/}/ contains=' . s:ContainedGroup() . ' fold'
-
-syn keyword scalaAkkaSpecialWord when goto using startWith initialize onTransition stay become unbecome
-hi link scalaAkkaSpecialWord PreProc
 
 syn keyword scalatestSpecialWord shouldBe
 syn match scalatestShouldDSLA /^\s\+\zsit should/
@@ -126,8 +123,8 @@ syn match scalaCaseFollowing /\<[_\.A-Za-z0-9$]\+\>/ contained contains=scalaCap
 syn match scalaCaseFollowing /`[^`]\+`/ contained contains=scalaCapitalWord
 hi link scalaCaseFollowing Special
 
-syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed null super
-syn keyword scalaSpecialFunction implicitly require
+syn keyword scalaKeywordModifier abstract override final lazy implicit private protected sealed null super given extension using open transparent export inline opaque enum
+syn keyword scalaSpecialFunction implicitly require summon
 hi link scalaKeywordModifier Function
 hi link scalaSpecialFunction Function
 
@@ -209,20 +206,6 @@ hi link scalaAnnotation PreProc
 
 syn match scalaTrailingComment "//.*$" contains=scalaTodo,@Spell
 hi link scalaTrailingComment Comment
-
-syn match scalaAkkaFSM /goto([^)]*)\_s\+\<using\>/ contains=scalaAkkaFSMGotoUsing
-syn match scalaAkkaFSM /stay\_s\+using/
-syn match scalaAkkaFSM /^\s*stay\s*$/
-syn match scalaAkkaFSM /when\ze([^)]*)/
-syn match scalaAkkaFSM /startWith\ze([^)]*)/
-syn match scalaAkkaFSM /initialize\ze()/
-syn match scalaAkkaFSM /onTransition/
-syn match scalaAkkaFSM /onTermination/
-syn match scalaAkkaFSM /whenUnhandled/
-syn match scalaAkkaFSMGotoUsing /\<using\>/
-syn match scalaAkkaFSMGotoUsing /\<goto\>/
-hi link scalaAkkaFSM PreProc
-hi link scalaAkkaFSMGotoUsing PreProc
 
 let b:current_syntax = 'scala'
 
